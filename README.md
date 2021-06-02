@@ -1,24 +1,16 @@
 # teste
 
-## Project setup
+## Instalar dependencias
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Rodar servidor
 ```
 npm run serve
 ```
+### Observação
 
-### Compiles and minifies for production
 ```
-npm run build
+Não adicionei validações pois segui o que foi pedido no teste
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
