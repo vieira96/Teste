@@ -1,20 +1,20 @@
 <template>
   <div class="modal flex column">
     <h2>Atualizar pessoa</h2>
-    <form class="flex column" @submit.stop.prevent="$emit('update', pessoa)">
+    <form class="flex column" @submit.stop.prevent="update(pessoa)">
       <input v-model="pessoa.nome" type="text" name="" placeholder="Informe o nome">
       <input v-model="pessoa.sobrenome" type="text" name="" placeholder="Informe o sobrenome">
       <input v-model="pessoa.email" type="email" name="" placeholder="Informe o email">
       <input v-model="pessoa.telefone" type="text" name="" placeholder="Informe o telefone">
       <div>
-        <input type="checkbox" name="juridica" value="juridica" v-model="juridica" checked >
+        <input type="checkbox" name="juridica" value="juridica" v-model="juridica">
         <label style="color: white; margin-left: 5px;" for="juridica">Pessoa juridica</label>
       </div>
 
       <input v-if="showCnpj" v-model="pessoa.cnpj" type="text" placeholder="Informe cnpj">
       <input v-if="showCpf" v-model="pessoa.cpf" type="text" placeholder="Informe o cpf">
 
-      <button>Enviar</button>
+      <button>Salvar</button>
       <button @click.stop.prevent="$emit('cancel')">Cancelar</button>
 
     </form>
@@ -30,14 +30,7 @@ export default {
   },
   data() {
     return {
-      pessoa: {
-        nome: '',
-        sobrenome: '',
-        email: '',
-        telefone: '',
-        cpf: '',
-        cnpj: '',
-      },
+      pessoa: {},
       juridica: false,
       showCpf: true,
       showCnpj: false,
@@ -55,6 +48,15 @@ export default {
         this.pessoa.cnpj = '';
       }
 
+    }
+  },
+
+  methods: {
+    update(pessoa) {
+      //atualizo o dado pra saber se o usuario alterou pra pessoa fisica ou juridica.
+      pessoa.juridica = this.juridica
+      console.log(pessoa);
+      this.$emit('update', pessoa)
     }
   },
   created() {

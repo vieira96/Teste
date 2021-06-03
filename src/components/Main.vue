@@ -75,6 +75,7 @@ export default {
         sobrenome: this.sobrenome,
         email: this.email,
         telefone: this.telefone,
+        juridica: this.juridica,
         cpf: this.cpf,
         cnpj: this.cnpj,
         id: this.pessoas.length+1
